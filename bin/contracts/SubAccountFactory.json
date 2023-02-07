@@ -1,0 +1,895 @@
+{
+    "contractName": "SubAccountFactory",
+    "abi": [
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "newSubAccountAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "SubAccountCreated",
+            "type": "event"
+        },
+        {
+            "inputs": [],
+            "name": "createSubAccount",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_user",
+                    "type": "address"
+                }
+            ],
+            "name": "getUserSubAccounts",
+            "outputs": [
+                {
+                    "internalType": "address[]",
+                    "name": "",
+                    "type": "address[]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "libraryAddress",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newSubAccountAddress\",\"type\":\"address\"}],\"name\":\"SubAccountCreated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"createSubAccount\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"getUserSubAccounts\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"libraryAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"createSubAccount()\":{\"details\":\"Allows to create a new sub-account smart-contract Emitted {SubAccountCreated} event\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/puru/aip/DEX/contracts/SubAccountFabric.sol\":\"SubAccountFactory\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/puru/aip/DEX/contracts/SubAccount.sol\":{\"keccak256\":\"0x7c5c6b8dbb138c3065b0bdadd9b4978f657d3ae6e5c53f72c6282ae4b5cd58ef\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://49c8ababdf6276051168313c34ff4cc02950f4318b6d801e5b11db7b8fbd9689\",\"dweb:/ipfs/QmdeXEPb9e5JKC5SMgVPCsvAmZq7dRV7fEmb4m7mDh53a2\"]},\"/home/puru/aip/DEX/contracts/SubAccountFabric.sol\":{\"keccak256\":\"0x3e76120ade73a4b13452b8c4c3bbd374ddb59f4336a0595a65c2f273a94ab1df\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8b71e812611c624070f6a21f08b7a238cce9ffb351c3d14f012e9e58815b89ce\",\"dweb:/ipfs/QmSFhCUw1AuuWJAnvLWuaAbYY7XwqyQEFXYvc5Nd366keP\"]},\"/home/puru/aip/DEX/contracts/utils/AddressUpgradeable.sol\":{\"keccak256\":\"0x6a9a08a9f27387bc814f84790f531c3294a816c013c0186d7f8747d98cce8ef0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5ebc632f79f64ffcc64e9eaeb9c5dbdb7e9782d496433707549bfa0150cd40f6\",\"dweb:/ipfs/Qmex45W95Mcqm3Gpo9PN1ZzZnxAxPC1vhCzWQeyEi2Bm3E\"]},\"/home/puru/aip/DEX/contracts/utils/CloneFactory.sol\":{\"keccak256\":\"0x2a624fb9988d5735371fbcfc26fb4ba3b713057f7865b77dc0ce28d48f07a2ee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://07c90e78986833666721709c8aa34efc3cc58d2c4d11065e10855be194a54aa4\",\"dweb:/ipfs/QmdPJQ5a5VtjYRF6NcspKqTPyJSasThi3NFFDAjqxqnx5r\"]},\"/home/puru/aip/DEX/contracts/utils/IERC20.sol\":{\"keccak256\":\"0xc1290610aec42ee2c1df247fb5ee2d82e976178fb906f701d34f6b656f1b052e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://07025f5f368b572cdcb785e42d142cdbb10acaa0d0168d288d30c25201a7a289\",\"dweb:/ipfs/QmeSy22Ruxo56qH4GkUJU4SEEv6PsAnzny8MpMGnPkXksc\"]},\"/home/puru/aip/DEX/contracts/utils/Initialize.sol\":{\"keccak256\":\"0x4bda59bf38ae176a9842d4b7a2af81da764ce415909ac29210a3b00f844a2a20\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://020e93744321d27baf8a7796624a9b8dd4cd8f9422580c13ee3aec57e8041458\",\"dweb:/ipfs/QmNLjc3Zf3Bk4wgPbFdXbQHHgs1m1xLmLQtTeMzdtJaDaa\"]}},\"version\":1}",
+    "bytecode": "608060405234801561001057600080fd5b50610e96806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80632e2cfdf614610046578063b816f5131461006f578063da5ea1931461009a575b600080fd5b6100596100543660046101e0565b6100a4565b604051610066919061020e565b60405180910390f35b600154610082906001600160a01b031681565b6040516001600160a01b039091168152602001610066565b6100a2610118565b005b6001600160a01b0381166000908152602081815260409182902080548351818402810184019094528084526060939283018282801561010c57602002820191906000526020600020905b81546001600160a01b031681526001909101906020018083116100ee575b50505050509050919050565b600033905060008160405161012c906101d3565b6001600160a01b039091168152602001604051809103906000f080158015610158573d6000803e3d6000fd5b506001600160a01b0383811660009081526020818152604080832080546001810182559084529282902090920180546001600160a01b0319169385169384179055905191825291925082917f01aee64fcbad8bcef6daf6a3513806966637c9f3ad1c8a5b8f07e2b649ce12f4910160405180910390a1505050565b610c058061025c83390190565b6000602082840312156101f1578081fd5b81356001600160a01b0381168114610207578182fd5b9392505050565b6020808252825182820181905260009190848201906040850190845b8181101561024f5783516001600160a01b03168352928401929184019160010161022a565b5090969550505050505056fe60806040526064600455620186a060055534801561001c57600080fd5b50604051610c05380380610c0583398101604081905261003b91610060565b600380546001600160a01b0319166001600160a01b039290921691909117905561008e565b600060208284031215610071578081fd5b81516001600160a01b0381168114610087578182fd5b9392505050565b610b688061009d6000396000f3fe608060405234801561001057600080fd5b50600436106100b45760003560e01c80638da5cb5b116100715780638da5cb5b1461014e578063918f8ad514610161578063d4a20b071461018a578063d8ef259714610193578063d9caed12146101a6578063e1a1875f146101b957600080fd5b806307f13843146100b9578063282d3fdf146100ce57806345b96f08146100e157806347e7ef24146100f4578063659934c11461010757806367c1140f14610137575b600080fd5b6100cc6100c7366004610985565b6101cc565b005b6100cc6100dc366004610a34565b61031b565b6100cc6100ef366004610929565b610467565b6100cc610102366004610a34565b610504565b61011a610115366004610a7d565b6105de565b6040516001600160a01b0390911681526020015b60405180910390f35b61014060045481565b60405190815260200161012e565b60035461011a906001600160a01b031681565b61014061016f366004610929565b6001600160a01b031660009081526001602052604090205490565b61014060055481565b61011a6101a1366004610a7d565b610649565b6100cc6101b436600461094a565b61071b565b6100cc6101c7366004610a7d565b6108ac565b60035481516020830151604084015188936001600160a01b0316926101f29287926105de565b6001600160a01b0316146102455760405162461bcd60e51b8152602060048201526015602482015274566572696669636174696f6e206661696c6564212160581b60448201526064015b60405180910390fd5b60405163a9059cbb60e01b81526001600160a01b0386811660048301526024820186905282169063a9059cbb90604401602060405180830381600087803b15801561028f57600080fd5b505af11580156102a3573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102c79190610a5d565b50604080516001600160a01b038089168252871660208201529081018590527f3844b7075ed6e7d4b61342769cb2b1b325cba410a62932affaa90aee247dadf59060600160405180910390a1505050505050565b6003546001600160a01b0316331461036d5760405162461bcd60e51b81526020600482015260156024820152742ca7aa9020a922902727aa102a24229027aba722a960591b604482015260640161023c565b60045481116103d25760405162461bcd60e51b815260206004820152602b60248201527f6d696e206c6f636b74696d652073686f756c64206265206d6f7265207468616e60448201526a2031303020626c6f636b7360a81b606482015260840161023c565b600554811061043b5760405162461bcd60e51b815260206004820152602f60248201527f6d6178206c6f636b74696d652073686f756c64206265206c657373207468616e60448201526e203130305f30303020626c6f636b7360881b606482015260840161023c565b436104468282610b0e565b6001600160a01b039093166000908152600260205260409020929092555050565b6040516370a0823160e01b815230600482015281906000906001600160a01b038316906370a082319060240160206040518083038186803b1580156104ab57600080fd5b505afa1580156104bf573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104e39190610ab7565b6001600160a01b039093166000908152600160205260409020929092555050565b60405163a9059cbb60e01b81523060048201526024810182905282906001600160a01b0382169063a9059cbb90604401602060405180830381600087803b15801561054e57600080fd5b505af1158015610562573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105869190610a5d565b50604080516001600160a01b03851681523060208201529081018390527f3844b7075ed6e7d4b61342769cb2b1b325cba410a62932affaa90aee247dadf59060600160405180910390a16105d983610467565b505050565b6040805160008082526020820180845287905260ff8616928201929092526060810184905260808101839052819060019060a0016020604051602081039080840390855afa158015610634573d6000803e3d6000fd5b5050604051601f190151979650505050505050565b6000806040518060400160405280601c81526020017f19457468657265756d205369676e6564204d6573736167653a0a333200000000815250905060008187604051602001610699929190610acf565b60408051601f198184030181528282528051602091820120600080855291840180845281905260ff8a169284019290925260608301889052608083018790529092509060019060a0016020604051602081039080840390855afa158015610704573d6000803e3d6000fd5b5050604051601f1901519998505050505050505050565b6003546001600160a01b0316331461076d5760405162461bcd60e51b81526020600482015260156024820152742ca7aa9020a922902727aa102a24229027aba722a960591b604482015260640161023c565b6001600160a01b0383166000908152600260205260409020548390439081116107ce5760405162461bcd60e51b81526020600482015260136024820152721d1bdad95b9cc81cdd1a5b1b081b1bd8dad959606a1b604482015260640161023c565b60405163a9059cbb60e01b81526001600160a01b0385811660048301526024820185905283169063a9059cbb90604401602060405180830381600087803b15801561081857600080fd5b505af115801561082c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108509190610a5d565b5061085a85610467565b604080516001600160a01b038088168252861660208201529081018490527f037238854fe57fbf51f09946f854fc3916fe83938d6521f09bd05463839f13049060600160405180910390a15050505050565b6040805185815260ff85166020820152908101839052606081018290527f8e9f65bdaaa380a96990cb036df4235d04ffa939497c8b88aaadd4a832a2f4a79060800160405180910390a150505050565b80356001600160a01b038116811461091357600080fd5b919050565b803560ff8116811461091357600080fd5b60006020828403121561093a578081fd5b610943826108fc565b9392505050565b60008060006060848603121561095e578182fd5b610967846108fc565b9250610975602085016108fc565b9150604084013590509250925092565b600080600080600085870360e081121561099d578182fd5b6109a6876108fc565b95506109b4602088016108fc565b9450604087013593506060808801359350607f19820112156109d4578182fd5b506040516060810181811067ffffffffffffffff82111715610a0457634e487b7160e01b83526041600452602483fd5b604052610a1360808801610918565b815260a0870135602082015260c09096013560408701525092959194509290565b60008060408385031215610a46578182fd5b610a4f836108fc565b946020939093013593505050565b600060208284031215610a6e578081fd5b81518015158114610943578182fd5b60008060008060808587031215610a92578384fd5b84359350610aa260208601610918565b93969395505050506040820135916060013590565b600060208284031215610ac8578081fd5b5051919050565b60008351815b81811015610aef5760208187018101518583015201610ad5565b81811115610afd5782828501525b509190910191825250602001919050565b60008219821115610b2d57634e487b7160e01b81526011600452602481fd5b50019056fea26469706673582212201b62a76aed444e76ab7fc84114bc9247c29213fdfb6f53cb4dab93e2cfa044c064736f6c63430008040033a264697066735822122048ebf1db6746c4c596bbd195db5c4436505e7f4b9e6719146444b52dce99db1e64736f6c63430008040033",
+    "deployedBytecode": "608060405234801561001057600080fd5b50600436106100415760003560e01c80632e2cfdf614610046578063b816f5131461006f578063da5ea1931461009a575b600080fd5b6100596100543660046101e0565b6100a4565b604051610066919061020e565b60405180910390f35b600154610082906001600160a01b031681565b6040516001600160a01b039091168152602001610066565b6100a2610118565b005b6001600160a01b0381166000908152602081815260409182902080548351818402810184019094528084526060939283018282801561010c57602002820191906000526020600020905b81546001600160a01b031681526001909101906020018083116100ee575b50505050509050919050565b600033905060008160405161012c906101d3565b6001600160a01b039091168152602001604051809103906000f080158015610158573d6000803e3d6000fd5b506001600160a01b0383811660009081526020818152604080832080546001810182559084529282902090920180546001600160a01b0319169385169384179055905191825291925082917f01aee64fcbad8bcef6daf6a3513806966637c9f3ad1c8a5b8f07e2b649ce12f4910160405180910390a1505050565b610c058061025c83390190565b6000602082840312156101f1578081fd5b81356001600160a01b0381168114610207578182fd5b9392505050565b6020808252825182820181905260009190848201906040850190845b8181101561024f5783516001600160a01b03168352928401929184019160010161022a565b5090969550505050505056fe60806040526064600455620186a060055534801561001c57600080fd5b50604051610c05380380610c0583398101604081905261003b91610060565b600380546001600160a01b0319166001600160a01b039290921691909117905561008e565b600060208284031215610071578081fd5b81516001600160a01b0381168114610087578182fd5b9392505050565b610b688061009d6000396000f3fe608060405234801561001057600080fd5b50600436106100b45760003560e01c80638da5cb5b116100715780638da5cb5b1461014e578063918f8ad514610161578063d4a20b071461018a578063d8ef259714610193578063d9caed12146101a6578063e1a1875f146101b957600080fd5b806307f13843146100b9578063282d3fdf146100ce57806345b96f08146100e157806347e7ef24146100f4578063659934c11461010757806367c1140f14610137575b600080fd5b6100cc6100c7366004610985565b6101cc565b005b6100cc6100dc366004610a34565b61031b565b6100cc6100ef366004610929565b610467565b6100cc610102366004610a34565b610504565b61011a610115366004610a7d565b6105de565b6040516001600160a01b0390911681526020015b60405180910390f35b61014060045481565b60405190815260200161012e565b60035461011a906001600160a01b031681565b61014061016f366004610929565b6001600160a01b031660009081526001602052604090205490565b61014060055481565b61011a6101a1366004610a7d565b610649565b6100cc6101b436600461094a565b61071b565b6100cc6101c7366004610a7d565b6108ac565b60035481516020830151604084015188936001600160a01b0316926101f29287926105de565b6001600160a01b0316146102455760405162461bcd60e51b8152602060048201526015602482015274566572696669636174696f6e206661696c6564212160581b60448201526064015b60405180910390fd5b60405163a9059cbb60e01b81526001600160a01b0386811660048301526024820186905282169063a9059cbb90604401602060405180830381600087803b15801561028f57600080fd5b505af11580156102a3573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102c79190610a5d565b50604080516001600160a01b038089168252871660208201529081018590527f3844b7075ed6e7d4b61342769cb2b1b325cba410a62932affaa90aee247dadf59060600160405180910390a1505050505050565b6003546001600160a01b0316331461036d5760405162461bcd60e51b81526020600482015260156024820152742ca7aa9020a922902727aa102a24229027aba722a960591b604482015260640161023c565b60045481116103d25760405162461bcd60e51b815260206004820152602b60248201527f6d696e206c6f636b74696d652073686f756c64206265206d6f7265207468616e60448201526a2031303020626c6f636b7360a81b606482015260840161023c565b600554811061043b5760405162461bcd60e51b815260206004820152602f60248201527f6d6178206c6f636b74696d652073686f756c64206265206c657373207468616e60448201526e203130305f30303020626c6f636b7360881b606482015260840161023c565b436104468282610b0e565b6001600160a01b039093166000908152600260205260409020929092555050565b6040516370a0823160e01b815230600482015281906000906001600160a01b038316906370a082319060240160206040518083038186803b1580156104ab57600080fd5b505afa1580156104bf573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104e39190610ab7565b6001600160a01b039093166000908152600160205260409020929092555050565b60405163a9059cbb60e01b81523060048201526024810182905282906001600160a01b0382169063a9059cbb90604401602060405180830381600087803b15801561054e57600080fd5b505af1158015610562573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105869190610a5d565b50604080516001600160a01b03851681523060208201529081018390527f3844b7075ed6e7d4b61342769cb2b1b325cba410a62932affaa90aee247dadf59060600160405180910390a16105d983610467565b505050565b6040805160008082526020820180845287905260ff8616928201929092526060810184905260808101839052819060019060a0016020604051602081039080840390855afa158015610634573d6000803e3d6000fd5b5050604051601f190151979650505050505050565b6000806040518060400160405280601c81526020017f19457468657265756d205369676e6564204d6573736167653a0a333200000000815250905060008187604051602001610699929190610acf565b60408051601f198184030181528282528051602091820120600080855291840180845281905260ff8a169284019290925260608301889052608083018790529092509060019060a0016020604051602081039080840390855afa158015610704573d6000803e3d6000fd5b5050604051601f1901519998505050505050505050565b6003546001600160a01b0316331461076d5760405162461bcd60e51b81526020600482015260156024820152742ca7aa9020a922902727aa102a24229027aba722a960591b604482015260640161023c565b6001600160a01b0383166000908152600260205260409020548390439081116107ce5760405162461bcd60e51b81526020600482015260136024820152721d1bdad95b9cc81cdd1a5b1b081b1bd8dad959606a1b604482015260640161023c565b60405163a9059cbb60e01b81526001600160a01b0385811660048301526024820185905283169063a9059cbb90604401602060405180830381600087803b15801561081857600080fd5b505af115801561082c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906108509190610a5d565b5061085a85610467565b604080516001600160a01b038088168252861660208201529081018490527f037238854fe57fbf51f09946f854fc3916fe83938d6521f09bd05463839f13049060600160405180910390a15050505050565b6040805185815260ff85166020820152908101839052606081018290527f8e9f65bdaaa380a96990cb036df4235d04ffa939497c8b88aaadd4a832a2f4a79060800160405180910390a150505050565b80356001600160a01b038116811461091357600080fd5b919050565b803560ff8116811461091357600080fd5b60006020828403121561093a578081fd5b610943826108fc565b9392505050565b60008060006060848603121561095e578182fd5b610967846108fc565b9250610975602085016108fc565b9150604084013590509250925092565b600080600080600085870360e081121561099d578182fd5b6109a6876108fc565b95506109b4602088016108fc565b9450604087013593506060808801359350607f19820112156109d4578182fd5b506040516060810181811067ffffffffffffffff82111715610a0457634e487b7160e01b83526041600452602483fd5b604052610a1360808801610918565b815260a0870135602082015260c09096013560408701525092959194509290565b60008060408385031215610a46578182fd5b610a4f836108fc565b946020939093013593505050565b600060208284031215610a6e578081fd5b81518015158114610943578182fd5b60008060008060808587031215610a92578384fd5b84359350610aa260208601610918565b93969395505050506040820135916060013590565b600060208284031215610ac8578081fd5b5051919050565b60008351815b81811015610aef5760208187018101518583015201610ad5565b81811115610afd5782828501525b509190910191825250602001919050565b60008219821115610b2d57634e487b7160e01b81526011600452602481fd5b50019056fea26469706673582212201b62a76aed444e76ab7fc84114bc9247c29213fdfb6f53cb4dab93e2cfa044c064736f6c63430008040033a264697066735822122048ebf1db6746c4c596bbd195db5c4436505e7f4b9e6719146444b52dce99db1e64736f6c63430008040033",
+    "sourceMap": "119:706:1:-:0;;;;;;;;;;;;;;;;;;;",
+    "deployedSourceMap": "119:706:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;696:125;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;202:29;;;;;-1:-1:-1;;;;;202:29:1;;;;;;-1:-1:-1;;;;;489:32:6;;;471:51;;459:2;444:18;202:29:1;426:102:6;432:258:1;;;:::i;:::-;;696:125;-1:-1:-1;;;;;795:19:1;;:12;:19;;;;;;;;;;;;788:26;;;;;;;;;;;;;;;;;761:16;;788:26;;;795:19;788:26;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;788:26:1;;;;;;;;;;;;;;;;;;;;;;;696:125;;;:::o;432:258::-;480:14;497:10;480:27;;518:17;553:6;538:22;;;;;:::i;:::-;-1:-1:-1;;;;;489:32:6;;;471:51;;459:2;444:18;538:22:1;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;612:20:1;;;571:12;612:20;;;;;;;;;;;:31;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;612:31:1;;;;;;;;;659:23;;471:51:6;;;612:31:1;;-1:-1:-1;612:31:1;;659:23;;444:18:6;659:23:1;;;;;;;432:258;;;:::o;-1:-1:-1:-;;;;;;;;:::o;14:306:6:-;73:6;126:2;114:9;105:7;101:23;97:32;94:2;;;147:6;139;132:22;94:2;178:23;;-1:-1:-1;;;;;230:31:6;;220:42;;210:2;;281:6;273;266:22;210:2;309:5;84:236;-1:-1:-1;;;84:236:6:o;533:661::-;704:2;756:21;;;826:13;;729:18;;;848:22;;;675:4;;704:2;927:15;;;;901:2;886:18;;;675:4;973:195;987:6;984:1;981:13;973:195;;;1052:13;;-1:-1:-1;;;;;1048:39:6;1036:52;;1143:15;;;;1108:12;;;;1084:1;1002:9;973:195;;;-1:-1:-1;1185:3:6;;684:510;-1:-1:-1;;;;;;684:510:6:o",
+    "sourcePath": "/home/puru/aip/DEX/contracts/SubAccountFabric.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.4+commit.c7e474f2"
+    },
+    "ast": {
+        "absolutePath": "/home/puru/aip/DEX/contracts/SubAccountFabric.sol",
+        "exportedSymbols": {
+            "AddressUpgradeable": [
+                741
+            ],
+            "CloneFactory": [
+                778
+            ],
+            "IERC20": [
+                856
+            ],
+            "Initializable": [
+                1025
+            ],
+            "SubAccount": [
+                391
+            ],
+            "SubAccountFactory": [
+                457
+            ]
+        },
+        "id": 458,
+        "license": "MIT",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 393,
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.8",
+                    ".4"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "31:23:1"
+            },
+            {
+                "absolutePath": "/home/puru/aip/DEX/contracts/SubAccount.sol",
+                "file": "./SubAccount.sol",
+                "id": 394,
+                "nameLocation": "-1:-1:-1",
+                "nodeType": "ImportDirective",
+                "scope": 458,
+                "sourceUnit": 392,
+                "src": "56:26:1",
+                "symbolAliases": [],
+                "unitAlias": ""
+            },
+            {
+                "absolutePath": "/home/puru/aip/DEX/contracts/utils/CloneFactory.sol",
+                "file": "./utils/CloneFactory.sol",
+                "id": 395,
+                "nameLocation": "-1:-1:-1",
+                "nodeType": "ImportDirective",
+                "scope": 458,
+                "sourceUnit": 779,
+                "src": "83:34:1",
+                "symbolAliases": [],
+                "unitAlias": ""
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "contractDependencies": [
+                    391
+                ],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 457,
+                "linearizedBaseContracts": [
+                    457
+                ],
+                "name": "SubAccountFactory",
+                "nameLocation": "128:17:1",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "constant": false,
+                        "id": 400,
+                        "mutability": "mutable",
+                        "name": "userAccounts",
+                        "nameLocation": "183:12:1",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 457,
+                        "src": "153:42:1",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
+                            "typeString": "mapping(address => address[])"
+                        },
+                        "typeName": {
+                            "id": 399,
+                            "keyType": {
+                                "id": 396,
+                                "name": "address",
+                                "nodeType": "ElementaryTypeName",
+                                "src": "161:7:1",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                }
+                            },
+                            "nodeType": "Mapping",
+                            "src": "153:29:1",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
+                                "typeString": "mapping(address => address[])"
+                            },
+                            "valueType": {
+                                "baseType": {
+                                    "id": 397,
+                                    "name": "address",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "172:7:1",
+                                    "stateMutability": "nonpayable",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    }
+                                },
+                                "id": 398,
+                                "nodeType": "ArrayTypeName",
+                                "src": "172:9:1",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                                    "typeString": "address[]"
+                                }
+                            }
+                        },
+                        "visibility": "internal"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "b816f513",
+                        "id": 402,
+                        "mutability": "mutable",
+                        "name": "libraryAddress",
+                        "nameLocation": "217:14:1",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 457,
+                        "src": "202:29:1",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                        },
+                        "typeName": {
+                            "id": 401,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "202:7:1",
+                            "stateMutability": "nonpayable",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "anonymous": false,
+                        "id": 406,
+                        "name": "SubAccountCreated",
+                        "nameLocation": "244:17:1",
+                        "nodeType": "EventDefinition",
+                        "parameters": {
+                            "id": 405,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 404,
+                                    "indexed": false,
+                                    "mutability": "mutable",
+                                    "name": "newSubAccountAddress",
+                                    "nameLocation": "270:20:1",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 406,
+                                    "src": "262:28:1",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 403,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "262:7:1",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "261:30:1"
+                        },
+                        "src": "238:54:1"
+                    },
+                    {
+                        "body": {
+                            "id": 442,
+                            "nodeType": "Block",
+                            "src": "469:221:1",
+                            "statements": [
+                                {
+                                    "assignments": [
+                                        411
+                                    ],
+                                    "declarations": [
+                                        {
+                                            "constant": false,
+                                            "id": 411,
+                                            "mutability": "mutable",
+                                            "name": "sender",
+                                            "nameLocation": "488:6:1",
+                                            "nodeType": "VariableDeclaration",
+                                            "scope": 442,
+                                            "src": "480:14:1",
+                                            "stateVariable": false,
+                                            "storageLocation": "default",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            },
+                                            "typeName": {
+                                                "id": 410,
+                                                "name": "address",
+                                                "nodeType": "ElementaryTypeName",
+                                                "src": "480:7:1",
+                                                "stateMutability": "nonpayable",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            },
+                                            "visibility": "internal"
+                                        }
+                                    ],
+                                    "id": 414,
+                                    "initialValue": {
+                                        "expression": {
+                                            "id": 412,
+                                            "name": "msg",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 4294967281,
+                                            "src": "497:3:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_magic_message",
+                                                "typeString": "msg"
+                                            }
+                                        },
+                                        "id": 413,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "memberName": "sender",
+                                        "nodeType": "MemberAccess",
+                                        "src": "497:10:1",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "nodeType": "VariableDeclarationStatement",
+                                    "src": "480:27:1"
+                                },
+                                {
+                                    "assignments": [
+                                        417
+                                    ],
+                                    "declarations": [
+                                        {
+                                            "constant": false,
+                                            "id": 417,
+                                            "mutability": "mutable",
+                                            "name": "subAcc",
+                                            "nameLocation": "529:6:1",
+                                            "nodeType": "VariableDeclaration",
+                                            "scope": 442,
+                                            "src": "518:17:1",
+                                            "stateVariable": false,
+                                            "storageLocation": "default",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_contract$_SubAccount_$391",
+                                                "typeString": "contract SubAccount"
+                                            },
+                                            "typeName": {
+                                                "id": 416,
+                                                "nodeType": "UserDefinedTypeName",
+                                                "pathNode": {
+                                                    "id": 415,
+                                                    "name": "SubAccount",
+                                                    "nodeType": "IdentifierPath",
+                                                    "referencedDeclaration": 391,
+                                                    "src": "518:10:1"
+                                                },
+                                                "referencedDeclaration": 391,
+                                                "src": "518:10:1",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_contract$_SubAccount_$391",
+                                                    "typeString": "contract SubAccount"
+                                                }
+                                            },
+                                            "visibility": "internal"
+                                        }
+                                    ],
+                                    "id": 423,
+                                    "initialValue": {
+                                        "arguments": [
+                                            {
+                                                "id": 421,
+                                                "name": "sender",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 411,
+                                                "src": "553:6:1",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "id": 420,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "nodeType": "NewExpression",
+                                            "src": "538:14:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_creation_nonpayable$_t_address_$returns$_t_contract$_SubAccount_$391_$",
+                                                "typeString": "function (address) returns (contract SubAccount)"
+                                            },
+                                            "typeName": {
+                                                "id": 419,
+                                                "nodeType": "UserDefinedTypeName",
+                                                "pathNode": {
+                                                    "id": 418,
+                                                    "name": "SubAccount",
+                                                    "nodeType": "IdentifierPath",
+                                                    "referencedDeclaration": 391,
+                                                    "src": "542:10:1"
+                                                },
+                                                "referencedDeclaration": 391,
+                                                "src": "542:10:1",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_contract$_SubAccount_$391",
+                                                    "typeString": "contract SubAccount"
+                                                }
+                                            }
+                                        },
+                                        "id": 422,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "538:22:1",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_contract$_SubAccount_$391",
+                                            "typeString": "contract SubAccount"
+                                        }
+                                    },
+                                    "nodeType": "VariableDeclarationStatement",
+                                    "src": "518:42:1"
+                                },
+                                {
+                                    "assignments": [
+                                        425
+                                    ],
+                                    "declarations": [
+                                        {
+                                            "constant": false,
+                                            "id": 425,
+                                            "mutability": "mutable",
+                                            "name": "addr",
+                                            "nameLocation": "579:4:1",
+                                            "nodeType": "VariableDeclaration",
+                                            "scope": 442,
+                                            "src": "571:12:1",
+                                            "stateVariable": false,
+                                            "storageLocation": "default",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            },
+                                            "typeName": {
+                                                "id": 424,
+                                                "name": "address",
+                                                "nodeType": "ElementaryTypeName",
+                                                "src": "571:7:1",
+                                                "stateMutability": "nonpayable",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            },
+                                            "visibility": "internal"
+                                        }
+                                    ],
+                                    "id": 430,
+                                    "initialValue": {
+                                        "arguments": [
+                                            {
+                                                "id": 428,
+                                                "name": "subAcc",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 417,
+                                                "src": "594:6:1",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_contract$_SubAccount_$391",
+                                                    "typeString": "contract SubAccount"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_contract$_SubAccount_$391",
+                                                    "typeString": "contract SubAccount"
+                                                }
+                                            ],
+                                            "id": 427,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": true,
+                                            "lValueRequested": false,
+                                            "nodeType": "ElementaryTypeNameExpression",
+                                            "src": "586:7:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_type$_t_address_$",
+                                                "typeString": "type(address)"
+                                            },
+                                            "typeName": {
+                                                "id": 426,
+                                                "name": "address",
+                                                "nodeType": "ElementaryTypeName",
+                                                "src": "586:7:1",
+                                                "typeDescriptions": {}
+                                            }
+                                        },
+                                        "id": 429,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "typeConversion",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "586:15:1",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "nodeType": "VariableDeclarationStatement",
+                                    "src": "571:30:1"
+                                },
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "id": 435,
+                                                "name": "addr",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 425,
+                                                "src": "638:4:1",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "expression": {
+                                                "baseExpression": {
+                                                    "id": 431,
+                                                    "name": "userAccounts",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 400,
+                                                    "src": "612:12:1",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
+                                                        "typeString": "mapping(address => address[] storage ref)"
+                                                    }
+                                                },
+                                                "id": 433,
+                                                "indexExpression": {
+                                                    "id": 432,
+                                                    "name": "sender",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 411,
+                                                    "src": "625:6:1",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                },
+                                                "isConstant": false,
+                                                "isLValue": true,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "nodeType": "IndexAccess",
+                                                "src": "612:20:1",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                                                    "typeString": "address[] storage ref"
+                                                }
+                                            },
+                                            "id": 434,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberName": "push",
+                                            "nodeType": "MemberAccess",
+                                            "src": "612:25:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_address_$dyn_storage_ptr_$_t_address_$returns$__$bound_to$_t_array$_t_address_$dyn_storage_ptr_$",
+                                                "typeString": "function (address[] storage pointer,address)"
+                                            }
+                                        },
+                                        "id": 436,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "612:31:1",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 437,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "612:31:1"
+                                },
+                                {
+                                    "eventCall": {
+                                        "arguments": [
+                                            {
+                                                "id": 439,
+                                                "name": "addr",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 425,
+                                                "src": "677:4:1",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "id": 438,
+                                            "name": "SubAccountCreated",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 406,
+                                            "src": "659:17:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                                                "typeString": "function (address)"
+                                            }
+                                        },
+                                        "id": 440,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "659:23:1",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 441,
+                                    "nodeType": "EmitStatement",
+                                    "src": "654:28:1"
+                                }
+                            ]
+                        },
+                        "documentation": {
+                            "id": 407,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "299:128:1",
+                            "text": " @dev Allows to create a new sub-account smart-contract\n Emitted {SubAccountCreated} event"
+                        },
+                        "functionSelector": "da5ea193",
+                        "id": 443,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "createSubAccount",
+                        "nameLocation": "441:16:1",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 408,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "457:2:1"
+                        },
+                        "returnParameters": {
+                            "id": 409,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "469:0:1"
+                        },
+                        "scope": 457,
+                        "src": "432:258:1",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "body": {
+                            "id": 455,
+                            "nodeType": "Block",
+                            "src": "778:43:1",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "baseExpression": {
+                                            "id": 451,
+                                            "name": "userAccounts",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 400,
+                                            "src": "795:12:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_address_$dyn_storage_$",
+                                                "typeString": "mapping(address => address[] storage ref)"
+                                            }
+                                        },
+                                        "id": 453,
+                                        "indexExpression": {
+                                            "id": 452,
+                                            "name": "_user",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 445,
+                                            "src": "808:5:1",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "isConstant": false,
+                                        "isLValue": true,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "nodeType": "IndexAccess",
+                                        "src": "795:19:1",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_array$_t_address_$dyn_storage",
+                                            "typeString": "address[] storage ref"
+                                        }
+                                    },
+                                    "functionReturnParameters": 450,
+                                    "id": 454,
+                                    "nodeType": "Return",
+                                    "src": "788:26:1"
+                                }
+                            ]
+                        },
+                        "functionSelector": "2e2cfdf6",
+                        "id": 456,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "getUserSubAccounts",
+                        "nameLocation": "705:18:1",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 446,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 445,
+                                    "mutability": "mutable",
+                                    "name": "_user",
+                                    "nameLocation": "732:5:1",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 456,
+                                    "src": "724:13:1",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 444,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "724:7:1",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "723:15:1"
+                        },
+                        "returnParameters": {
+                            "id": 450,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 449,
+                                    "mutability": "mutable",
+                                    "name": "",
+                                    "nameLocation": "-1:-1:-1",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 456,
+                                    "src": "761:16:1",
+                                    "stateVariable": false,
+                                    "storageLocation": "memory",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                                        "typeString": "address[]"
+                                    },
+                                    "typeName": {
+                                        "baseType": {
+                                            "id": 447,
+                                            "name": "address",
+                                            "nodeType": "ElementaryTypeName",
+                                            "src": "761:7:1",
+                                            "stateMutability": "nonpayable",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "id": 448,
+                                        "nodeType": "ArrayTypeName",
+                                        "src": "761:9:1",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                                            "typeString": "address[]"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "760:18:1"
+                        },
+                        "scope": 457,
+                        "src": "696:125:1",
+                        "stateMutability": "view",
+                        "virtual": false,
+                        "visibility": "external"
+                    }
+                ],
+                "scope": 458,
+                "src": "119:706:1",
+                "usedErrors": []
+            }
+        ],
+        "src": "31:1666:1"
+    },
+    "functionHashes": {
+        "createSubAccount()": "da5ea193",
+        "getUserSubAccounts(address)": "2e2cfdf6",
+        "libraryAddress()": "b816f513"
+    },
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "746800",
+            "executionCost": "779",
+            "totalCost": "747579"
+        },
+        "external": {
+            "createSubAccount()": "infinite",
+            "getUserSubAccounts(address)": "infinite",
+            "libraryAddress()": "1037"
+        }
+    }
+}
